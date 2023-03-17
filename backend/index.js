@@ -15,7 +15,12 @@ const router = require("./routes/v1/index.routes");
 //      "credentials": true,
 // }));
 
-app.use( cors({"origin": "https://localhost:3000"}))
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE,PATCH,PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 app.use("/v1", router);
 
