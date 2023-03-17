@@ -1,5 +1,7 @@
+const backendApi = "https://yellowclass-production.up.railway.app";
+
 const authApi = async (data, type) => {
-     const url = `http://localhost:8082/v1/auth/${type}`;
+     const url = `${backendApi}/v1/auth/${type}`;
      let body = { ...data };
      const response = await fetch(url, {
           method: "POST",
@@ -7,6 +9,7 @@ const authApi = async (data, type) => {
                "Content-Type": "application/json",
           },
           body: JSON.stringify(body),
+          withCredentials: true,
      });
      const result = await response.json();
      //  console.log("authapi", result);
@@ -15,7 +18,7 @@ const authApi = async (data, type) => {
 
 const newContact = async (data) => {
      const token = localStorage.getItem("token");
-     const url = `http://localhost:8082/v1/contact/add/${localStorage.getItem("userid")}`;
+     const url = `${backendApi}/v1/contact/add/${localStorage.getItem("userid")}`;
      const response = await fetch(url, {
           method: "POST",
           headers: {
@@ -31,7 +34,7 @@ const newContact = async (data) => {
 
 const deleteCont = async (data) => {
      const token = localStorage.getItem("token");
-     const url = `http://localhost:8082/v1/contact/delete/${localStorage.getItem("userid")}`;
+     const url = `${backendApi}/v1/contact/delete/${localStorage.getItem("userid")}`;
      const response = await fetch(url, {
           method: "DELETE",
           headers: {
@@ -46,7 +49,7 @@ const deleteCont = async (data) => {
 
 const updateCont = async (data) => {
      const token = localStorage.getItem("token");
-     const url = `http://localhost:8082/v1/contact/update/${localStorage.getItem("userid")}`;
+     const url = `${backendApi}/v1/contact/update/${localStorage.getItem("userid")}`;
      const response = await fetch(url, {
           method: "PATCH",
           headers: {
