@@ -8,12 +8,14 @@ app.use(express.json());
 
 const router = require("./routes/v1/index.routes");
 
-app.use(cors({
-     "origin": "*",
-     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-     "allowedHeaders": "Origin, X-Requested-With, Content-Type, Accept",
-     "credentials": true,
-}));
+// app.use(cors({
+//      "origin": "*",
+//      "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+//      "allowedHeaders": "Origin, X-Requested-With, Content-Type, Accept",
+//      "credentials": true,
+// }));
+
+app.options('/v1', cors({"Origin": "*"}))
 
 app.use("/v1", router);
 
