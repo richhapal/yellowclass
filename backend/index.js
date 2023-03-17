@@ -8,7 +8,7 @@ app.use(express.json());
 
 const router = require("./routes/v1/index.routes");
 
-app.options(*,cors());
+app.options("*",cors());
 
 app.use(cors({
      "origin": "http://localhost:3000",
