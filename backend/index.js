@@ -15,7 +15,7 @@ const router = require("./routes/v1/index.routes");
 //      "credentials": true,
 // }));
 
-app.options('/v1', cors({"Origin": "*"}))
+app.use( cors({"origin": "https://localhost:3000"}))
 
 app.use("/v1", router);
 
