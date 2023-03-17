@@ -11,7 +11,7 @@ const router = require("./routes/v1/index.routes");
 app.options("*",cors());
 
 app.use(cors({
-     "origin": "https://yellowclass.vercel.app/",
+     "origin": "https://yellowclass.vercel.app",
      "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
      "allowedHeaders": "Origin, X-Requested-With, Content-Type, Accept",
      "credentials": true,
