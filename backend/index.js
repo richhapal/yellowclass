@@ -8,7 +8,7 @@ app.use(express.json());
 
 const router = require("./routes/v1/index.routes");
 
-app.use(cors());
+app.use(cors({origin:"*"}));
 
 app.use("/v1", router);
 
