@@ -8,19 +8,15 @@ app.use(express.json());
 
 const router = require("./routes/v1/index.routes");
 
-// app.use(cors({
-//      "origin": "*",
-//      "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-//      "allowedHeaders": "Origin, X-Requested-With, Content-Type, Accept",
-//      "credentials": true,
-// }));
+app.options(*,cors());
 
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE,PATCH,PUT');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+app.use(cors({
+     "origin": "http://localhost:3000",
+     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+     "allowedHeaders": "Origin, X-Requested-With, Content-Type, Accept",
+     "credentials": true,
+}));
+
 
 app.use("/v1", router);
 
